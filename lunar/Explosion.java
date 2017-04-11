@@ -33,6 +33,7 @@ public class Explosion extends Actor
         initialiseImages();
         setImage(images[0]);        
         Greenfoot.playSound("Explosion.wav");
+        System.out.println("Gameover");
     }    
     
     /** 
@@ -87,4 +88,6 @@ public class Explosion extends Actor
             }
         }
     }
+    
+
 }
