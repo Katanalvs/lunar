@@ -137,10 +137,12 @@ public class Lander extends Actor
         if (isLanding()) {
             setImage(rocket);
             moon.addObject(new Flag(), getX(), getY());
+            moon.showGameIsOver(false);
             Greenfoot.stop();
         } 
         else if (isExploding()) {
             moon.addObject(new Explosion(), getX(), getY());
+            moon.showGameIsOver(true);
             moon.removeObject(this);
         }
     }

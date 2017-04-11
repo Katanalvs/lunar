@@ -51,5 +51,13 @@ public class Moon extends World
     public Color getSpaceColor() {
         return spaceColor;
     }
+    
+    public void showGameIsOver(boolean isFailed){
+        if(isFailed){
+            showText("GAMEOVER", 100, 50);
+        } else {
+            showText("GOOOOOOD", 100, 50);
+        }
+    }
  
 }
