@@ -136,7 +136,7 @@ public class Lander extends Actor
      */
     private void checkCollision() 
     {
-        
+        /*
         if (isLanding()) {
             setImage(rocket);
             moon.addObject(new Flag(), getX(), getY());
@@ -146,17 +146,19 @@ public class Lander extends Actor
         else if (isExploding()) {
             moon.addObject(new Explosion(), getX(), getY());
             moon.showGameIsOver(true);
-            moon.removeObject(this); 
-        }  
+            moon.removeObject(this);
+        }  */
+        System.out.println("check");
     }
     
     public void boundaryExceeded()
     {
-        if (isAtEdge())
+        /*if (isAtEdge())
         {
             moon.addObject(new Explosion(), getX(), getY());
             moon.showGameIsOver(true);
             moon.removeObject(this);
-        }
+        }*/
+        System.out.println("check2");
     }
 }
