@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Tue Apr 11 15:28:27 CEST 2017
+#Wed Apr 12 10:14:01 CEST 2017
 target4.type=ClassTarget
 dependency3.from=Lander
 target3.height=30
@@ -65,8 +65,8 @@ readme.height=58
 class.Lander.image=rocket.png
 target2.name=Explosion
 readme.name=@README
-package.numDependencies=5
 target4.naviview.expanded=true
+package.numDependencies=5
 simulation.speed=46
 class.Flag.superclass=greenfoot.Actor
 target3.type=ClassTarget
@@ -74,14 +74,14 @@ target4.width=60
 dependency2.from=Lander
 dependency2.type=UsesDependency
 class.World.superclass=
-class.Lander.superclass=greenfoot.Actor
 world.lastInstantiated=Moon
-target2.showInterface=false
+class.Lander.superclass=greenfoot.Actor
 mainWindow.height=748
+target2.showInterface=false
 target3.name=Moon
-readme.editor.width=900
 class.Explosion.image=explosion.png
+readme.editor.width=900
 target3.naviview.expanded=true
-project.charset=UTF-8
 target3.width=60
+project.charset=UTF-8
 target4.showInterface=false

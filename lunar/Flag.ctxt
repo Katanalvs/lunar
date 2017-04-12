@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=Flag
-comment0.text=\r\n\ A\ flag\ to\ plant\ on\ the\ moon.\r\n\ \r\n\ @author\ Poul\ Henriksen\r\n\ @version\ 1.0.1\r\n
+comment0.text=\n\ A\ flag\ to\ plant\ on\ the\ moon.\n\ \n\ @author\ Poul\ Henriksen\n\ @version\ 1.0.1\n
 comment1.params=
 comment1.target=Flag()
-comment2.params=note
-comment2.target=java.lang.String\ message(java.lang.String)
+comment2.params=
+comment2.target=java.lang.String\ message()
 numComments=3

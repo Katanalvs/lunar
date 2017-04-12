@@ -39,6 +39,7 @@ public class Lander extends Actor
     
     
     
+    
     public Lander()
     {
         rocket = getImage();
@@ -50,10 +51,10 @@ public class Lander extends Actor
     {
         processKeys();
         applyGravity();
-        
         altitude += speed / speedFactor;
         setLocation(getX(), (int) (altitude));
         checkCollision();
+        boundaryExceeded();
     }
 
     /**
@@ -77,6 +78,7 @@ public class Lander extends Actor
             //speed += thrust;Abkürzuung
             speed = speed+thrust;
             setImage(rocketWithThrust);
+            System.out.println("Down");
         }
         
         if (Greenfoot.isKeyDown("left"))
@@ -134,13 +136,23 @@ public class Lander extends Actor
      */
     private void checkCollision() 
     {
+        
         if (isLanding()) {
             setImage(rocket);
             moon.addObject(new Flag(), getX(), getY());
             moon.showGameIsOver(false);
-            Greenfoot.stop();
         } 
         else if (isExploding()) {
+            moon.addObject(new Explosion(), getX(), getY());
+            moon.showGameIsOver(true);
+            moon.removeObject(this); 
+        }  
+    }
+    
+    public void boundaryExceeded()
+    {
+        if (isAtEdge())
+        {
             moon.addObject(new Explosion(), getX(), getY());
             moon.showGameIsOver(true);
             moon.removeObject(this);

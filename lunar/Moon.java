@@ -22,7 +22,7 @@ public class Moon extends World
     public Moon() 
     {
         super(600,600,1);
-        addObject(new Lander(), 326, 100);
+        addObject(new Lander(), 300, 280);
         Explosion.initialiseImages();
     }
     
@@ -54,9 +54,9 @@ public class Moon extends World
     
     public void showGameIsOver(boolean isFailed){
         if(isFailed){
-            showText("GAMEOVER", 100, 50);
+            showText("GAMEOVER", 300, 250);
         } else {
-            showText("GOOOOOOD", 100, 50);
+            showText("Landed Safely", 100, 50);
         }
     }
  
