@@ -59,5 +59,10 @@ public class Moon extends World
             showText("Landed Safely", 100, 50);
         }
     }
- 
+    
+    public void alt(double altitude)
+    {
+        String altitudeasString = "Altitude: " + String.valueOf(altitude);
+        showText(altitudeasString, 300, 100 );
+    }
 }

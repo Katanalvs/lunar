@@ -37,7 +37,7 @@ public class Lander extends Actor
     /** Bottom of lander (offset in pixels from centre) */
     private int bottom = 15;
     
-    
+    private double x;
     
     
     public Lander()
@@ -54,7 +54,7 @@ public class Lander extends Actor
         altitude += speed / speedFactor;
         setLocation(getX(), (int) (altitude));
         checkCollision();
-        boundaryExceeded();
+        moon.alt(altitude);
     }
 
     /**
@@ -128,15 +128,21 @@ public class Lander extends Actor
     private boolean isExploding() 
     {
         Color colorBelow = moon.getColorAt(getX(), getY() + bottom);
-        return (speed > MAX_LANDING_SPEED) && !colorBelow.equals(moon.getSpaceColor());
+        if((speed > MAX_LANDING_SPEED) && !colorBelow.equals(moon.getSpaceColor())){
+            return true;}
+        else if(isBoundaryExceeded()){
+            return true;}
+        else{
+            return false;
+        }
+
     }
     
     /**
      * Check if we are colliding with anything and take appropiate action.
      */
     private void checkCollision() 
-    {
-        
+    {    
         if (isLanding()) {
             setImage(rocket);
             moon.addObject(new Flag(), getX(), getY());
@@ -146,17 +152,23 @@ public class Lander extends Actor
         else if (isExploding()) {
             moon.addObject(new Explosion(), getX(), getY());
             moon.showGameIsOver(true);
-            moon.removeObject(this); 
+            moon.removeObject(this);
         }  
     }
     
-    public void boundaryExceeded()
+    private boolean isBoundaryExceeded()
     {
-        if (isAtEdge())
-        {
-            moon.addObject(new Explosion(), getX(), getY());
-            moon.showGameIsOver(true);
-            moon.removeObject(this);
+        
+        if (isAtEdge()){
+            return true;
         }
+        else{
+            return false;
+        }
+       
     }
-}
+    
+    
+ }
+       
+

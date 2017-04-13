@@ -14,4 +14,6 @@ comment4.target=greenfoot.Color\ getSpaceColor()
 comment4.text=\n\ Color\ of\ the\ space\ \n\ \n
 comment5.params=isFailed
 comment5.target=void\ showGameIsOver(boolean)
-numComments=6
+comment6.params=altitude
+comment6.target=void\ alt(double)
+numComments=7
