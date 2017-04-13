@@ -1,3 +1,4 @@
+/*===========Lander==========*/
 import greenfoot.*;  // (World, Actor, GreenfootImage, and Greenfoot)
 
 /**
@@ -20,7 +21,7 @@ public class Lander extends Actor
     private double thrust = -3;
     
     /** The location */
-    private double altitude;
+    private int altitude;
     
     /** The speed is divided by this. */
     private double speedFactor = 10;
@@ -37,7 +38,7 @@ public class Lander extends Actor
     /** Bottom of lander (offset in pixels from centre) */
     private int bottom = 15;
     
-    private double x;
+    
     
     
     public Lander()
@@ -78,28 +79,28 @@ public class Lander extends Actor
             //speed += thrust;Abkürzuung
             speed = speed+thrust;
             setImage(rocketWithThrust);
-            System.out.println("Down");
+            //System.out.println("Down");
         }
         
         if (Greenfoot.isKeyDown("left"))
         {
             move (-15);
             setImage(rocketWithThrust);
-            System.out.println("Left");
+            //System.out.println("Left");
         }
         
         if(Greenfoot.isKeyDown("right"))
         {
             move (15);
             setImage(rocketWithThrust);
-            System.out.println("Right");
+            //System.out.println("Right");
         }
         
         if (Greenfoot.isKeyDown("up"))
         {
             speed -= 10;
             setImage(rocketWithThrust);
-            System.out.println("Up");
+            //System.out.println("Up");
         }
         
     }
@@ -113,7 +114,7 @@ public class Lander extends Actor
         speed += moon.getGravity();
     }
     
-    /*
+    /**
      * Whether we have touched the landing platform yet.
      */
     private boolean isLanding() 
@@ -121,28 +122,28 @@ public class Lander extends Actor
         Color colorBelow = moon.getColorAt(getX(), getY() + bottom);
         return (speed < MAX_LANDING_SPEED) && !colorBelow.equals(moon.getSpaceColor());
     }
-     
+    
     /** 
      * Is the lander exploding?
      */
     private boolean isExploding() 
     {
         Color colorBelow = moon.getColorAt(getX(), getY() + bottom);
-        if((speed > MAX_LANDING_SPEED) && !colorBelow.equals(moon.getSpaceColor())){
-            return true;}
-        else if(isBoundaryExceeded()){
-            return true;}
-        else{
-            return false;
+        
+        if ((getX() == 0  || getX() >= 599) && getY() > -1)
+        {
+            moon.addObject(new Explosion(), getX(), getY());
+            moon.showGameIsOver(true);
         }
-
+        return (speed > MAX_LANDING_SPEED) && !colorBelow.equals(moon.getSpaceColor());
     }
     
     /**
      * Check if we are colliding with anything and take appropiate action.
      */
     private void checkCollision() 
-    {    
+    {
+        
         if (isLanding()) {
             setImage(rocket);
             moon.addObject(new Flag(), getX(), getY());
@@ -155,20 +156,6 @@ public class Lander extends Actor
             moon.removeObject(this);
         }  
     }
-    
-    private boolean isBoundaryExceeded()
-    {
-        
-        if (isAtEdge()){
-            return true;
-        }
-        else{
-            return false;
-        }
-       
-    }
-    
-    
- }
-       
 
+   
+}

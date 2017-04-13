@@ -22,7 +22,7 @@ public class Moon extends World
     public Moon() 
     {
         super(600,600,1);
-        addObject(new Lander(), 300, 280);
+        addObject(new Lander(), 300, 300);
         Explosion.initialiseImages();
     }
     
@@ -52,6 +52,12 @@ public class Moon extends World
         return spaceColor;
     }
     
+    public void alt(int altitude)
+    {
+        String altitudeasString = "Altitude: " + String.valueOf(altitude);
+        showText (altitudeasString, 300, 100 );
+    }
+    
     public void showGameIsOver(boolean isFailed){
         if(isFailed){
             showText("GAMEOVER", 300, 250);
@@ -60,9 +66,5 @@ public class Moon extends World
         }
     }
     
-    public void alt(double altitude)
-    {
-        String altitudeasString = "Altitude: " + String.valueOf(altitude);
-        showText(altitudeasString, 300, 100 );
-    }
+    
 }
