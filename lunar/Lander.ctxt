@@ -23,4 +23,6 @@ comment7.text=\ \n\ Is\ the\ lander\ exploding?\n
 comment8.params=
 comment8.target=void\ checkCollision()
 comment8.text=\n\ Check\ if\ we\ are\ colliding\ with\ anything\ and\ take\ appropiate\ action.\n
-numComments=9
+comment9.params=
+comment9.target=void\ cheat()
+numComments=10

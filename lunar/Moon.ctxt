@@ -16,4 +16,6 @@ comment5.params=altitude
 comment5.target=void\ alt(int)
 comment6.params=isFailed
 comment6.target=void\ showGameIsOver(boolean)
-numComments=7
+comment7.params=cheatModeActive
+comment7.target=void\ showcheatModeActive(boolean)
+numComments=8
