@@ -147,7 +147,7 @@ public class Lander extends Actor
         {
             setLocation(599, getY());
         }
-        else if(getX() == 599)
+        else if(cheatModeActive && getX() == 599)
         {
             setLocation ( 0, getY());
         }

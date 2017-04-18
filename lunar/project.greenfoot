@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Thu Apr 13 16:09:21 CEST 2017
+#Tue Apr 18 08:53:03 CEST 2017
 target4.type=ClassTarget
 dependency3.from=Lander
 target3.height=30
@@ -28,7 +28,7 @@ dependency2.to=Flag
 target1.width=60
 dependency5.type=UsesDependency
 editor.fx.0.y=23
-editor.fx.0.x=361
+editor.fx.0.x=343
 target2.typeParameters=
 dependency3.to=Explosion
 target3.showInterface=false
@@ -54,11 +54,11 @@ class.Moon.image=moon.jpg
 target2.type=ClassTarget
 target2.y=10
 target2.x=160
-mainWindow.y=42
+mainWindow.y=25
 mainWindow.x=131
 dependency1.from=Lander
 target1.y=0
-editor.fx.0.height=817
+editor.fx.0.height=815
 target1.x=0
 dependency1.type=UsesDependency
 readme.height=58
