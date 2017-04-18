@@ -38,7 +38,7 @@ public class Lander extends Actor
     /** Bottom of lander (offset in pixels from centre) */
     private int bottom = 15;
     
-    
+    private boolean cheatModeActive = false;
     
     
     public Lander()
@@ -103,9 +103,19 @@ public class Lander extends Actor
             //System.out.println("Up");
         }
         
-        
-        //TODO: Hier enter mit reset ausführen...
-        
+        if(Greenfoot.isKeyDown("c"))
+        {
+            
+            if(cheatModeActive){
+                cheatModeActive = false;
+                moon.showcheatModeActive(cheatModeActive);
+            }
+            else{
+                cheatModeActive = true;
+                moon.showcheatModeActive(cheatModeActive);
+            }
+            
+        }
     }
    
     
@@ -133,11 +143,21 @@ public class Lander extends Actor
     {
         Color colorBelow = moon.getColorAt(getX(), getY() + bottom);
         
-        if ((getX() == 0  || getX() >= 599) && getY() > -1)
+        if(cheatModeActive && getX() == 0)
         {
-            moon.addObject(new Explosion(), getX(), getY());
-            moon.showGameIsOver(true);
+            setLocation(599, getY());
         }
+        else if(cheatModeActive && getX() == 599)
+        {
+            setLocation ( 0, getY());
+        }
+        
+        else if((getX() == 0  || getX() >= 599) && getY() > -1)
+        {
+          moon.addObject(new Explosion(), getX(), getY());
+                moon.showGameIsOver(true);
+        }
+       
         return (speed > MAX_LANDING_SPEED) && !colorBelow.equals(moon.getSpaceColor());
     }
     
@@ -161,4 +181,16 @@ public class Lander extends Actor
     }
 
    
+    private void cheat()
+    {
+        if(Greenfoot.isKeyDown("c") && (getX() == 0 ))//
+        {
+          setLocation(600, getY());
+        }
+        else if(Greenfoot.isKeyDown("c") && (getX() >= 599))
+        {
+          setLocation(0, getY());  
+        }
+        
+    }
 }

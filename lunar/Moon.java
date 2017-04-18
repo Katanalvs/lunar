@@ -19,6 +19,8 @@ public class Moon extends World
     /** Color of the space */
     private Color spaceColor = Color.BLACK;
     
+    
+    
     public Moon() 
     {
         super(600,600,1);
@@ -66,5 +68,17 @@ public class Moon extends World
         }
     }
     
+    public void showcheatModeActive ( boolean cheatModeActive)
+    {
+        if(cheatModeActive)
+        {
+            showText("Cheat Mode", 100, 100);
+        }
+        else
+        {
+            showText("", 100, 100);
+        }
+        
+    }
     
 }
