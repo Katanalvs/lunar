@@ -103,6 +103,9 @@ public class Lander extends Actor
             //System.out.println("Up");
         }
         
+        
+        //TODO: Hier enter mit reset ausführen...
+        
     }
    
     
