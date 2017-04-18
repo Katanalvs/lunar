@@ -10,12 +10,8 @@ public class Flag extends Actor
 {
     public Flag () 
     {
-        System.out.println(message() );
+       
     }
     
-    public String message ()
-    {
-        String message = "You have landed";
-        return message;
-    }
+   
 }

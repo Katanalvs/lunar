@@ -54,6 +54,12 @@ public class Moon extends World
         return spaceColor;
     }
     
+    public void speed(double svalue)
+    {
+        String svalueasString = "Speed: " + String.valueOf(Math.round(svalue));
+        showText (svalueasString, 300, 200 );
+    }
+    
     public void alt(int altitude)
     {
         String altitudeasString = "Altitude: " + String.valueOf(altitude);

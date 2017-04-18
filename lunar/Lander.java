@@ -56,6 +56,7 @@ public class Lander extends Actor
         setLocation(getX(), (int) (altitude));
         checkCollision();
         moon.alt(altitude);
+        moon.speed(speed);
     }
 
     /**
