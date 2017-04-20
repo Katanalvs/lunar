@@ -3,11 +3,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, and Greenfoot)
 
 /**
  * A lunar lander
- *
- * @author Poul Henriksen
- * @author Michael Kölling
- * 
- * @version 1.1
+ * @author: Katana Willis
+ * @version 1.0
  */
 public class Lander extends Actor
 {
@@ -35,10 +32,14 @@ public class Lander extends Actor
     /** Moon we are trying to land on */
     private Moon moon;    
     
-    /** Bottom of lander (offset in pixels from centre) */
+    /** Bottom of lander (offset in pixels from center) */
     private int bottom = 15;
     
+    /** Cheat-Mode activation */
     private boolean cheatModeActive = false;
+    
+    /** Invisble Rocket mode*/
+    private GreenfootImage rocketInvisible;
     
     
     public Lander()
@@ -46,6 +47,7 @@ public class Lander extends Actor
         rocket = getImage();
         rocketWithThrust = new GreenfootImage("thrust.png");
         rocketWithThrust.drawImage(rocket, 0, 0);
+        rocketInvisible = getImage();
     }       
 
     public void act()
@@ -57,6 +59,15 @@ public class Lander extends Actor
         checkCollision();
         moon.alt(altitude);
         moon.speed(speed);
+        if(isVisible())
+        {
+          rocketInvisible.setTransparency(0);
+          setImage(rocketInvisible);   
+        }else
+        {
+         setImage(rocketWithThrust);
+        }
+         
     }
 
     /**
@@ -73,12 +84,11 @@ public class Lander extends Actor
      */
     private void processKeys() 
     {
-        String key = Greenfoot.getKey();
         
         if(Greenfoot.isKeyDown("down")) 
         {
             //speed += thrust;Abkürzuung
-            speed = speed+thrust;
+            speed = 18;
             setImage(rocketWithThrust);
             //System.out.println("Down");
         }
@@ -117,9 +127,9 @@ public class Lander extends Actor
             }
             
         }
+        
     }
    
-    
     /**
      * Let the gravity change the speed.
      */
@@ -153,10 +163,10 @@ public class Lander extends Actor
             setLocation ( 0, getY());
         }
         
-        else if((getX() == 0  || getX() >= 599) && getY() > -1)
+        else if((getX() == 0  || getX() >= 599) && getY() > 0)
         {
           moon.addObject(new Explosion(), getX(), getY());
-                moon.showGameIsOver(true);
+          moon.showGameIsOver(true);
         }
        
         return (speed > MAX_LANDING_SPEED) && !colorBelow.equals(moon.getSpaceColor());
@@ -180,8 +190,7 @@ public class Lander extends Actor
             moon.removeObject(this);
         }  
     }
-
-   
+    
     private void cheat()
     {
         if(Greenfoot.isKeyDown("c") && (getX() == 0 ))//
@@ -192,6 +201,17 @@ public class Lander extends Actor
         {
           setLocation(0, getY());  
         }
-        
+    }
+    
+    public boolean isVisible()
+    {
+        if (altitude < 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }

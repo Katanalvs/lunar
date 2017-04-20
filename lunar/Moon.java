@@ -57,24 +57,24 @@ public class Moon extends World
     public void speed(double svalue)
     {
         String svalueasString = "Speed: " + String.valueOf(Math.round(svalue));
-        showText (svalueasString, 300, 200 );
+        showText (svalueasString, 500, 75 );
     }
     
     public void alt(int altitude)
     {
         String altitudeasString = "Altitude: " + String.valueOf(altitude);
-        showText (altitudeasString, 300, 100 );
+        showText (altitudeasString, 500, 50 );
     }
     
     public void showGameIsOver(boolean isFailed){
         if(isFailed){
             showText("GAMEOVER", 300, 250);
         } else {
-            showText("Landed Safely", 100, 50);
+            showText("Landed Safely", 300, 250);
         }
     }
     
-    public void showcheatModeActive ( boolean cheatModeActive)
+    public void showcheatModeActive (boolean cheatModeActive)
     {
         if(cheatModeActive)
         {
